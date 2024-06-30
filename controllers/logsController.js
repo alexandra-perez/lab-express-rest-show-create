@@ -4,6 +4,9 @@ const logArray = require('../models/log');
 
 router.get('/', (req, res) => {
   res.status(200).send(logArray);
+  next()
 });
+
+
 
 module.exports = router;

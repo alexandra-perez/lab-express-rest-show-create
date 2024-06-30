@@ -11,4 +11,9 @@ app.get('/', (req, res) => {
 const logsController = require('./controllers/logsController');
 app.use('/logs', logsController);
 
+app.get('*', (req, res) => {
+  res.status(404);
+  res.send(`<h1>Page not found</h1><p><a href="/logs">Back to home page</a></p>`)
+});
+
 module.exports = app;
