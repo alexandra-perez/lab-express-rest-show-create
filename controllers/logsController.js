@@ -5,7 +5,6 @@ const logArray = require('../models/log');
 // Index
 router.get('/', (req, res) => {
   res.status(200).send(logArray);
-  next();
 });
 
 // Show
