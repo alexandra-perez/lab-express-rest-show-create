@@ -14,7 +14,7 @@ router.get('/:index', (req, res) => {
   if (logArray[index]) {
     res.status(200).send(logArray[index]);
   } else {
-    res.status(404).redirect("/*");
+    res.status(404).redirect('/*');
   }
 });
 
@@ -38,5 +38,11 @@ router.delete('/:id', (req, res) => {
 });
 
 // Update
+router.put('/:id', (req, res) => {
+  const { id } = req.params;
+  let log = logArray.find((log) => log.id === parseInt(id));
+  log = req.body;
+  res.status(200).send(log);
+});
 
 module.exports = router;
