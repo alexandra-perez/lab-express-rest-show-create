@@ -27,6 +27,16 @@ router.post('/', (req, res) => {
 });
 
 // Destroy
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  const logIndex = logArray.findIndex((log) => log.id === parseInt(id));
+  if (logIndex !== -1) {
+    logArray.splice(logIndex, 1)
+    res.status(200).send(logArray);
+  } else {
+    res.status(404).send(`No log with ID ${id} found.`);
+  }
+})
 
 // Update
 
