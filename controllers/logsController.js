@@ -7,6 +7,11 @@ router.get('/', (req, res) => {
   next()
 });
 
+router.post("/", (req, res) => {
+  const currentLog = { id: logArray.length + 1, ...req.body };
+  logArray.push(currentLog);
+  res.send(logArray[logArray.length - 1]);
+})
 
 
 module.exports = router;
